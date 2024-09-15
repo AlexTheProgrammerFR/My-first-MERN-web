@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+body {
+  background-color: rgb(32, 34, 37);
+  color: white;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+textarea,
+input[type="number"] {
+  @apply w-full px-4 py-2 bg-biGray text-white border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-biBlue;
+}
+
+.primary {
+    @apply bg-biBlue py-1 px-4 rounded-lg shadow-lg text-lg hover:bg-bidBlue
+}
+
+.dangerous {
+  @apply bg-red-500 py-1 px-4 rounded-lg shadow-lg text-lg hover:bg-red-700
+}
+
+.safe {
+  @apply bg-green-500 py-1 px-4 rounded-lg shadow-lg text-lg hover:bg-green-600
+}
+
+button.primaryRound {
+  @apply bg-biBlue py-1 px-4 shadow-lg rounded-full text-lg hover:bg-bidBlue
+}
