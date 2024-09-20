@@ -21,10 +21,8 @@ async function signCookie(res, id) {
   return new Promise((resolve, reject) => {
     jwt.sign({ id }, jwtSecret, {}, (err, token) => {
       if (err) {
-        console.log(err)
         return reject(err);
       }
-      console.log(token)
       res.cookie("token", token, {
         httpOnly: true,
         secure: true,
@@ -202,7 +200,13 @@ async function checkIsFavorite(req, res) {
 }
 
 async function logOut(req, res) {
-  res.cookie("token", "").json({});
+  res
+    .cookie("token", "", {
+      httpOnly: true,
+      secure: true,
+      sameSite: "None",
+    })
+    .json({});
 }
 
 async function getCourses(req, res) {
