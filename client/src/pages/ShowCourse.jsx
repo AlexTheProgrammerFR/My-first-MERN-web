@@ -135,7 +135,7 @@ const ShowCourse = () => {
       )}
       <div className="w-full h-128 my-8 md:px-4 sm:px-12">
         <img
-          src={`http://localhost:5000/uploads/${course.img}`}
+          src={`https://devcourse.onrender.com/uploads/${course.img}`}
           alt={course.img}
           className="w-full h-full object-cover"
         />
