@@ -2,27 +2,35 @@ import React, { useState, useContext } from "react";
 import axios from "axios";
 import { Navigate, Link } from "react-router-dom";
 import UserContext from "../UserContext";
-
+import LoadAnimation from "../components/LoadAnimation";
 const LogIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loggedin, setLoggedin] = useState(false);
 
-  const { setUser } = useContext(UserContext);
+  const { setUser, user, ready } = useContext(UserContext);
 
   const handleLogin = (e) => {
     e.preventDefault();
     axios
       .post("/login", { email, password })
-      .then(({data}) => {
+      .then(({ data }) => {
         alert("Logged in successfully!");
         setUser(data);
         setLoggedin(true);
       })
-      .catch(({response}) => {
+      .catch(({ response }) => {
         alert(`${response.data.message}`);
       });
   };
+
+  if (!ready) {
+    return <LoadAnimation />;
+  }
+
+  if (ready && user) {
+    return <Navigate to={`/profile`} />;
+  }
 
   if (loggedin === true) {
     return <Navigate to="/" />;
@@ -51,7 +59,10 @@ const LogIn = () => {
           Submit
         </button>
         <div className="text-center">
-          Don't have an account? <Link className="underline" to="/signup">Sign up!</Link>
+          Don't have an account?{" "}
+          <Link className="underline" to="/signup">
+            Sign up!
+          </Link>
         </div>
       </form>
     </div>
