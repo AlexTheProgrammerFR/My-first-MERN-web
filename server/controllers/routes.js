@@ -200,13 +200,19 @@ async function checkIsFavorite(req, res) {
 }
 
 async function logOut(req, res) {
-  res
-    .cookie("token", "", {
-      httpOnly: true,
-      secure: true,
-      sameSite: "None",
-    })
-    .json({});
+  try {
+    res
+      .cookie("token", "", {
+        httpOnly: true,
+        secure: true,
+        sameSite: "None",
+      })
+      .json(null);
+    console.log("OK")
+  } catch (err) {
+    console.log(err);
+    res.json({ message: "An error has occured!" });
+  }
 }
 
 async function getCourses(req, res) {
