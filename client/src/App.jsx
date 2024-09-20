@@ -10,7 +10,7 @@ import Courses from "./pages/Courses.jsx";
 import ShowCourse from "./pages/ShowCourse.jsx";
 import About from "./pages/About.jsx";
 import Contact from "./pages/Contact.jsx"
-axios.defaults.baseURL = "http://localhost:5000";
+axios.defaults.baseURL = "https://devcourse.onrender.com";
 axios.defaults.withCredentials = true;
 function App() {
   return (
