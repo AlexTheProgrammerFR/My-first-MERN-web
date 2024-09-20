@@ -21,27 +21,6 @@ app.use(cookieParser());
 app.use("/uploads", express.static(__dirname+"/uploads"))
 app.use("/", Route);
 
-const User = require("./models/User.js");
-const Course = require("./models/Course.js");
-app.get("/", async (_, res) => {
-  try {
-    const users = await Course.find(); // Wait for the database operation to complete
-    res.status(200).json(users); // Send the users as a JSON response
-  } catch (error) {
-    res.status(500).json({ error: error.message }); // Send an error response if something goes wrong
-  }
-});
-
-app.post("/create-courses", async (req, res) => {
-  try {
-    const data = req.body;
-    const courses = await Course.create(data);
-    res.status(201).json(courses);
-  } catch (err) {
-    res.json(err);
-  }
-});
-
 async function start() {
   try {
     const DB_URI = process.env.URI_PASS;
