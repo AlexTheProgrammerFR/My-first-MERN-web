@@ -23,7 +23,11 @@ async function signCookie(res, id) {
       if (err) {
         return reject(err);
       }
-      res.cookie("token", token, { httpOnly: true });
+      res.cookie("token", token, {
+        httpOnly: true,
+        secure: true,
+        sameSite: "None",
+      });
       resolve();
     });
   });
