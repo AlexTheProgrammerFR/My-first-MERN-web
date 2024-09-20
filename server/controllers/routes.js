@@ -21,8 +21,10 @@ async function signCookie(res, id) {
   return new Promise((resolve, reject) => {
     jwt.sign({ id }, jwtSecret, {}, (err, token) => {
       if (err) {
+        console.log(err)
         return reject(err);
       }
+      console.log(token)
       res.cookie("token", token, {
         httpOnly: true,
         secure: true,
