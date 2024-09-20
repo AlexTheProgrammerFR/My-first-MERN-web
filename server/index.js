@@ -6,7 +6,7 @@ const connectDB = require("./db/connect.js");
 dotenv.config();
 
 const cors = require("cors");
-app.use(
+app.use("*",
   cors({
     origin: "https://devcourse-frontend.onrender.com",
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
