@@ -8,7 +8,7 @@ const CourseImg = ({ img }) => {
           <div className="object-cover w-full h-full bg-gray-700"></div>
         ) : (
           <img
-            src={`http://localhost:5000/uploads/${img}`}
+            src={`https://devcourse.onrender.com/uploads/${img}`}
             alt={"Report an error to us now!"}
             className="w-full h-full object-cover"
             loading="lazy"
