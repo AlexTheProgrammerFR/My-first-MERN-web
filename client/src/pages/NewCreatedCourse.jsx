@@ -329,7 +329,7 @@ const NewCreatedCourse = () => {
               <div className="w-60">
                 <img
                   className="object-cover w-full h-full rounded-2xl"
-                  src={`http://localhost:5000/uploads/${image}`}
+                  src={`https://devcourse.onrender.com/uploads/${image}`}
                   alt={image}
                 />
               </div>
